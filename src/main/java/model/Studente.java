@@ -3,12 +3,11 @@ package model;
 
 import java.util.ArrayList;
 
-public class Studente {
+public class Studente extends Utente{
     private String nome;
     private String cognome;
     private String matricola;
     private String email;
-    private String password;
 
     private  Tesi tesi;
 
@@ -16,77 +15,42 @@ public class Studente {
 
     private ArrayList<RichiestaTirocinio> richiestatirocinio;
 
-    public Studente(String nome, String cognome, String matricola, String email, String password) {
+
+    public Studente(String nome, String cognome, String matricola, String email, String login , String password) {
+        super(login , password);
         this.nome = nome;
         this.cognome = cognome;
         this.matricola = matricola;
         this.email = email;
-        this.password = password;
 
         this.richiestatirocinio = new ArrayList<>();
     }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() {return nome;}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public void setNome(String nome) {this.nome = nome;}
 
-    public String getCognome() {
-        return cognome;
-    }
+    public String getCognome() {return cognome;}
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
+    public void setCognome(String cognome) {this.cognome = cognome;}
 
-    public String getMatricola() {
-        return matricola;
-    }
+    public String getMatricola() {return matricola;}
 
-    public void setMatricola(String matricola) {
-        this.matricola = matricola;
-    }
+    public void setMatricola(String matricola) {this.matricola = matricola;}
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() {return email;}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) {this.email = email;}
 
-    public String getPassword() {
-        return password;
-    }
+    public Tesi getTesi() {return tesi;}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setTesi(Tesi tesi) {this.tesi = tesi;}
 
-    public Tesi getTesi() {
-        return tesi;
-    }
+    public SedutaDiLaurea getSedutadilaurea() {return this.sedutadilaurea;}
 
-    public void setTesi(Tesi tesi) {
-        this.tesi = tesi;
-    }
+    public void setSedutadilaurea(SedutaDiLaurea sedutadilaurea) {this.sedutadilaurea = sedutadilaurea;}
 
-    public SedutaDiLaurea getSedutadilaurea() {
-        return Sedutadilaurea;
-    }
+    public ArrayList<RichiestaTirocinio> getRichiestatirocinio() {return richiestatirocinio;}
 
-    public void setSedutadilaurea(SedutaDiLaurea sedutadilaurea) {
-        Sedutadilaurea = sedutadilaurea;
-    }
-
-    public ArrayList<RichiestaTirocinio> getRichiestatirocinio() {
-        return Richiestatirocinio;
-    }
-
-    public void addRichiestatirocinio(Richiestatirocinio richiesta) {
-        this.Richiestatirocinio.add(richiesta);
-    }
+    public void addRichiestatirocinio(RichiestaTirocinio richiesta) {this.richiestatirocinio.add(richiesta);}
 }

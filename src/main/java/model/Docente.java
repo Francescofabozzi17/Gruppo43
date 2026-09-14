@@ -2,11 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
-public class Docente {
+public class Docente extends Utente{
     private String nome;
     private String cognome;
     private String email;
-    private String password;
+
 
     private ArrayList<Tirocinio> tirocinioassociati;
 
@@ -14,11 +14,11 @@ public class Docente {
 
     private ArrayList<Tesi> tesicontrollate;
 
-    public Docente(String nome, String cognome, String email, String password) {
+    public Docente(String nome, String cognome, String email, String login , String password){
+         super(login , password );
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.password = password;
         this.tirocinioassociati = new ArrayList<>();
         this.richiestaTirociniovalutate = new ArrayList<>();
         this.tesicontrollate = new ArrayList<>();
@@ -48,13 +48,7 @@ public class Docente {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public ArrayList<Tirocinio> getTirocinioassociati() {
         return tirocinioassociati;

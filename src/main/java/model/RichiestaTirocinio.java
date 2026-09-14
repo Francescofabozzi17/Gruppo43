@@ -33,9 +33,7 @@ public class RichiestaTirocinio {
         return this.statoapprovazione;
     }
 
-    public void setStatoapprovazione(Statoapprovazione statoapprovazione) {
-        this.statoapprovazione = statoapprovazione;
-    }
+    public void setStatoapprovazione(Statoapprovazione statoapprovazione) {this.statoapprovazione = statoapprovazione;}
 
     public Docente getDocenterelatore() {
         return docenterelatore;
