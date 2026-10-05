@@ -1,37 +1,28 @@
 package database_connection;
 
-import dao.DocenteDao;
 import implementazioneDao.DocentePostgresDao;
-
+import implementazioneDao.UtentePostgresDao;
 import java.sql.Connection;
-import java.util.ArrayList;
 
 public class TestConnessione {
 
     public static void main(String[] args) {
         try (Connection connessione =
                      ConnessioneDatabase.getconnessione()) {
+            DocentePostgresDao docente = new DocentePostgresDao(connessione);
 
-            DocenteDao docenteDao = new DocentePostgresDao(connessione);
+            docente.register(
+                    "Francesco",
+                    "Rossi",
+                    "francesco@example.com",
+                    "kekko",
+                    "12345"
+            );
+            UtentePostgresDao utente = new UtentePostgresDao(connessione);
 
-            ArrayList<String> nomi = new ArrayList<>();
-            ArrayList<String> cognomi = new ArrayList<>();
-            ArrayList<String> email = new ArrayList<>();
-            ArrayList<String> login = new ArrayList<>();
-
-            docenteDao.getAllDocenti(nomi, cognomi, email, login);
-
-            System.out.println("Query riuscita. Docenti trovati: "
-                    + login.size());
-
-            for (int i = 0; i < login.size(); i++) {
-                System.out.println(
-                        nomi.get(i) + " "
-                                + cognomi.get(i) + " | "
-                                + email.get(i) + " | "
-                                + login.get(i)
-                );
-            }
+            System.out.println(utente.login("kekko", "12345"));
+            System.out.println(utente.login("kekko", "1234"));
+            System.out.println(utente.getTipoUtente("kekko"));
 
         } catch (Exception e) {
             e.printStackTrace();
