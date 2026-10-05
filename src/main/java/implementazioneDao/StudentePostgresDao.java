@@ -47,5 +47,6 @@ public class StudentePostgresDao implements StudenteDao {
 
 
     }
-    void getstudente(String login, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> email, ArrayList<String> matricole) throws Exception;
+    void getstudente(String login, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> email, ArrayList<String> matricole) throws Exception;{
+
 }
