@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Tirocinio {
+    private int idTirocinio;
     private String argomento;
     private Tipotirocinio tipotirocinio;
     private String referenteaziendalenome;
@@ -19,6 +20,9 @@ public class Tirocinio {
         this.richiestatirocinio = new ArrayList<>();
     }
 
+    public int getIdTirocinio() {return idTirocinio;}
+
+    public void setIdTirocinio(int idTirocinio) {this.idTirocinio = idTirocinio;}
     public String getArgomento() {
         return argomento;
     }

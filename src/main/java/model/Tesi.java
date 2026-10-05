@@ -3,6 +3,7 @@ package model;
 
 
 public class Tesi {
+    private int idtesi;
     private String fileTesi;
     private Statoapprovazione statoApprovazioneTesi;
 
@@ -13,6 +14,9 @@ public class Tesi {
         this.fileTesi = filetesi;
         this.statoApprovazioneTesi = statoapprovazionetesi;
     }
+    public int getIdtesi() {return idtesi;}
+
+    public void setIdtesi(int idtesi) {this.idtesi = idtesi;}
 
     public String getFiletesi() {
         return fileTesi;
@@ -26,9 +30,7 @@ public class Tesi {
         return statoApprovazioneTesi;
     }
 
-    public void setStatoapprovazionetesi(Statoapprovazione statoapprovazionetesi) {
-        this.statoApprovazioneTesi = statoapprovazionetesi;
-    }
+    public void setStatoapprovazionetesi(Statoapprovazione statoapprovazionetesi) {this.statoApprovazioneTesi = statoapprovazionetesi;}
 
     public Docente getDocente() {
         return docente;

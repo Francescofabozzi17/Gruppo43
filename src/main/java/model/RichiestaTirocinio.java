@@ -1,18 +1,21 @@
 package model;
 
 public class RichiestaTirocinio {
+    private int idrichiesta;
     private Studente studente;
     private Tirocinio tirocinio;
     private Statoapprovazione statoapprovazione;
 
-    private Docente docenterelatore;
+
 
     public RichiestaTirocinio(Studente studente, Tirocinio tirocinio, Statoapprovazione statoapprovazione) {
         this.studente = studente;
         this.tirocinio = tirocinio;
         this.statoapprovazione = statoapprovazione;
     }
+    public int getIdrichiesta() {return idrichiesta;}
 
+    public void setIdrichiesta(int idrichiesta   ) {this.idrichiesta = idrichiesta;}
     public Studente getStudente() {
         return studente;
     }
@@ -36,10 +39,8 @@ public class RichiestaTirocinio {
     public void setStatoapprovazione(Statoapprovazione statoapprovazione) {this.statoapprovazione = statoapprovazione;}
 
     public Docente getDocenterelatore() {
-        return docenterelatore;
-    }
-
-    public void setDocenterelatore(Docente docenterelatore) {
-        this.docenterelatore = docenterelatore;
+        return tirocinio.getDocente();
     }
 }
+
+

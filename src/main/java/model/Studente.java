@@ -16,8 +16,8 @@ public class Studente extends Utente{
     private ArrayList<RichiestaTirocinio> richiestatirocinio;
 
 
-    public Studente(String nome, String cognome, String matricola, String email, String login , String password) {
-        super(login , password);
+    public Studente(String nome, String cognome, String matricola, String email, String login)   {
+        super(login , null);
         this.nome = nome;
         this.cognome = cognome;
         this.matricola = matricola;

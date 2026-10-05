@@ -3,9 +3,9 @@ package model;
 public class Coordinatore extends Docente{
 
 
-    public Coordinatore(String nome, String cognome, String email,String login , String password)
+    public Coordinatore(String nome, String cognome, String email,String login)
     {
-        super(nome, cognome, email,login,password);
+        super(nome, cognome, email,login );
     }
 
 }
