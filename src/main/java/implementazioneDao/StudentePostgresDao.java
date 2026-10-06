@@ -17,9 +17,9 @@ public class StudentePostgresDao implements StudenteDao {
     @Override
     public void register(String nome, String cognome, String email, String matricola, String login, String password) throws Exception {
         String sqlUtente = "INSERT INTO Utente (login , password_hash) VALUES (? , ?)";
-        String sqlStudente = "INSERT INTO Utente (matricola , nome , cognome , email ,) VALUES (? , ? , ? , ?)";
+        String sqlStudente = "INSERT INTO Studente (matricola ,login ,  nome , cognome , email ,) VALUES (? , ? , ? , ?)";
         if (!connection.getAutoCommit()) {
-            System.out.println("Una transazione è gia in corso");
+            throw new IllegalStateException("una transazione è gia in corso");
         }
         connection.setAutoCommit(false);
         try {
@@ -34,9 +34,10 @@ public class StudentePostgresDao implements StudenteDao {
                          connection.prepareStatement(sqlStudente)) {
 
                 statement.setString(1, matricola);
-                statement.setString(2, nome);
-                statement.setString(3, cognome);
-                statement.setString(4, email);
+                statement.setString(2, login);
+                statement.setString(3, nome);
+                statement.setString(4, cognome);
+                statement.setString(5, email);
                 statement.executeUpdate();
             }
             connection.commit();

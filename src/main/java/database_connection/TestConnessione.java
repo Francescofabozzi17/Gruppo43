@@ -3,6 +3,7 @@ package database_connection;
 import dao.StudenteDao;
 import implementazioneDao.DocentePostgresDao;
 import implementazioneDao.StudentePostgresDao;
+import implementazioneDao.TirocinioPostgresDao;
 import implementazioneDao.UtentePostgresDao;
 import model.Studente;
 
@@ -34,7 +35,16 @@ public class TestConnessione {
             ArrayList<String> email = new ArrayList<>();
             ArrayList<String> matricole = new ArrayList<>();
             studente.getstudente("123" , nomi , cognomi , email , matricole);
-
+            if (nomi.isEmpty()) {
+                System.out.println("Studente non trovato");
+            } else {
+                System.out.println(nomi.get(0) + " " + cognomi.get(0));
+                System.out.println("Matricola: " + matricole.get(0));
+            }
+            TirocinioPostgresDao tirocinio = new TirocinioPostgresDao(connessione);
+            String argomento = "matematica";
+            tirocinio.inseriscitirocinio(argomento ,"INTERNO" , null , null, "kekko");
+            System.out.println("Tirocinio di " + argomento + " inserito correttamente");
         } catch (Exception e) {
             e.printStackTrace();
         }
