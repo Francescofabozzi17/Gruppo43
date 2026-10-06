@@ -4,15 +4,18 @@ import dao.StudenteDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class StudentePostgresDao implements StudenteDao {
     private final Connection connection;
 
-    public StudentePostgresDao(Connection connection){
+    public StudentePostgresDao(Connection connection) {
         this.connection = connection;
     }
-    void register (String nome, String cognome, String email,String matricola ,String login , String password) throws Exception {
+
+    @Override
+    public void register(String nome, String cognome, String email, String matricola, String login, String password) throws Exception {
         String sqlUtente = "INSERT INTO Utente (login , password_hash) VALUES (? , ?)";
         String sqlStudente = "INSERT INTO Utente (matricola , nome , cognome , email ,) VALUES (? , ? , ? , ?)";
         if (!connection.getAutoCommit()) {
@@ -46,7 +49,20 @@ public class StudentePostgresDao implements StudenteDao {
     }
 
 
-    }
-    void getstudente(String login, ArrayList<String> nomi, ArrayList<String> cognomi, ArrayList<String> email, ArrayList<String> matricole) throws Exception;{
+    public void getstudente(String login, ArrayList<String> nome, ArrayList<String> cognome, ArrayList<String> email, ArrayList<String> matricola) throws Exception {
 
+        String sql = "SELECT nome, cognome, email, matricola " + "FROM Studente" + " WHERE login = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, login);
+            try (ResultSet risultato = statement.executeQuery()) {
+                if (risultato.next()) {
+                    nome.add(risultato.getString("nome"));
+                    cognome.add(risultato.getString("cognome"));
+                    email.add(risultato.getString("email"));
+                    matricola.add(risultato.getString("matricola"));
+                }
+            }
+        }
+    }
 }
