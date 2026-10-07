@@ -1,4 +1,5 @@
 package dao;
 
-public interface RichiestatirocinioDao {
+public interface RichiestatirocinioDao  {
+
 }
