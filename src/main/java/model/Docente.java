@@ -14,8 +14,8 @@ public class Docente extends Utente{
 
     private ArrayList<Tesi> tesicontrollate;
 
-    public Docente(String nome, String cognome, String email, String login , String password){
-         super(login , password );
+    public Docente(String nome, String cognome, String email, String login  ){
+         super(login , null );
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;

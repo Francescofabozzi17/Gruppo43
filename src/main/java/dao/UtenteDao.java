@@ -1,5 +1,6 @@
 package dao;
 
 public interface UtenteDao {
-    public  anna
+    boolean login (String login , String password )throws Exception;
+    String getTipoUtente(String login)throws  Exception;
 }

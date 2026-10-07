@@ -15,6 +15,7 @@ public class Utente {
     public boolean login(String login, String password) {
         return ( login.equals(this.login) && password.equals(this.password));
     }
+    public String getLogin(){return login;}
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
 }

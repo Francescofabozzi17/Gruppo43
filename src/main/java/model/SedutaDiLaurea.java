@@ -1,22 +1,41 @@
 package model;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+
 
 public class SedutaDiLaurea {
-     private LocalDateTime ora;
-     private Date data;
-     private Studente studente;
+    private int idseduta;
+     private LocalDate data;
+     private LocalTime ora;
+     private String luogo;
+     private ArrayList<Studente> studenti;
 
-     public SedutaDiLaurea(Date data , LocalDateTime ora , Studente studente){
+     public SedutaDiLaurea(LocalTime ora ,LocalDate data , String luogo , int idseduta){
+         this.idseduta = idseduta;
          this.data = data;
          this.ora = ora;
-         this.studente = studente;
+         this.luogo = luogo;
+         this.studenti = new ArrayList<>();
+
      }
-     public Studente getStudente(){return this.studente;}
-    public void setStudente(Studente studente) {this.studente = studente;}
-    public Date getData(){return this.data;}
-    public void setData(Date data){this.data = data;}
-    public LocalDateTime getOra(){ return this.ora; }
-    public void Setora(LocalDateTime ora){this.ora = ora;}
+    public int getIdseduta() {return idseduta;}
+
+
+    public void setIdseduta(int idseduta) {     this.idseduta = idseduta;   }
+    public ArrayList<Studente> getStudenti(){   return studenti;     }
+    public void aggiungiStudente(Studente studente){
+         if(!studenti.contains(studente)){
+             studenti.add(studente);
+         }
+         studente.setSedutadilaurea(this);
+    }
+    public LocalDate getData(){return this.data;}
+    public void setData(LocalDate data){this.data = data;}
+    public LocalTime getOra(){ return this.ora; }
+    public void Setora(LocalTime ora){this.ora = ora;}
+    public String getLuogo() {return luogo;}
+    public void setLuogo(String luogo) {this.luogo = luogo;}
 }
