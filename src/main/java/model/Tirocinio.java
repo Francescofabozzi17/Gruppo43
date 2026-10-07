@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Tirocinio {
@@ -8,14 +9,16 @@ public class Tirocinio {
     private Tipotirocinio tipotirocinio;
     private String referenteaziendalenome;
     private String referenteaziendaleemail;
+    private LocalDate data_scadenza;
 
     private Docente logindocente;
 
     private ArrayList<RichiestaTirocinio> richiestatirocinio;
 
-    public Tirocinio(String argomento, Tipotirocinio tipotirocinio) {
+    public Tirocinio(String argomento, Tipotirocinio tipotirocinio , LocalDate data_scadenza) {
         this.argomento = argomento;
         this.tipotirocinio = tipotirocinio;
+        this.data_scadenza = data_scadenza;
 
         this.richiestatirocinio = new ArrayList<>();
     }
@@ -69,5 +72,11 @@ public class Tirocinio {
 
     public void setRichiestatirocinio(ArrayList<RichiestaTirocinio> richiestatirocinio) {
         this.richiestatirocinio = richiestatirocinio;
+    }
+    public void getDataScadenza(){
+return this.data_scadenza;
+    }
+    public void setData_scadenza(LocalDate data_scadenza){
+        this.data_scadenza = data_scadenza;
     }
 }

@@ -1,16 +1,21 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class RichiestaTirocinio {
     private int idrichiesta;
     private Studente studente;
     private Tirocinio tirocinio;
+    private LocalDateTime dataRichiesta;
     private Statoapprovazione statoapprovazione;
 
 
 
-    public RichiestaTirocinio(Studente studente, Tirocinio tirocinio, Statoapprovazione statoapprovazione) {
+    public RichiestaTirocinio(Studente studente, Tirocinio tirocinio, Statoapprovazione statoapprovazione , LocalDateTime dataRichiesta) {
         this.studente = studente;
         this.tirocinio = tirocinio;
+        this.dataRichiesta = dataRichiesta;
         this.statoapprovazione = statoapprovazione;
     }
     public int getIdrichiesta() {return idrichiesta;}
@@ -40,6 +45,9 @@ public class RichiestaTirocinio {
 
     public Docente getDocenterelatore() {
         return tirocinio.getDocente();
+    }
+    public void getDataRichiesta(){
+        return this.dataRichiesta ;
     }
 }
 

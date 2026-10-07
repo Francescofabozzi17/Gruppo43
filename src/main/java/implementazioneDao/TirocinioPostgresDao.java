@@ -33,7 +33,7 @@ import java.util.ArrayList;
         @Override
         public void getTirocinioDisponibili(ArrayList<Integer> idTirocini, ArrayList<String> argomenti, ArrayList<String> tipiTirocinio, ArrayList<String> referentiAziendaliNomi, ArrayList<String> referentiAziendaliEmail, ArrayList<String> loginDocenti) throws Exception {
 
-            String sql = "Select id_Tirocini , argomento , tipiTirocinio , referentiAziendaliNomi ,referentiAziendaliEmail , logindocenti  "
+            String sql = "Select id_Tirocinio , argomento , tipiTirocinio , referentiAziendaliNomi ,referentiAziendaliEmail , logindocente  "
                 + " FROM tirocinio ORDER BY idTirocini";
             try (PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet risultato = statement.executeQuery() ) {
@@ -52,7 +52,7 @@ import java.util.ArrayList;
         public void getTirocinioPerDocente(String loginDocente, ArrayList<Integer> idTirocini, ArrayList<String> argomenti, ArrayList<String> tipiTirocinio, ArrayList<String> referentiAziendaliNomi, ArrayList<String> referentiAziendaliEmail) throws Exception {
 
 
-            String sql = "SELECT id_Tirocini , argomenti , tipiTirocinio , referentiAziendaliNomi ,referentiAziendaliEmail "
+            String sql = "SELECT id_Tirocinio , argomento , tipoTirocinio , referenteAziendaliNomi ,referenteAziendaliEmail "
                     + " FROM tirocinio " + "Where loginDocente = ? ORDER BY idtirocini ";
             try(PreparedStatement statement = connection.prepareStatement(sql)){
                 statement.setString(1 ,loginDocente) ;
