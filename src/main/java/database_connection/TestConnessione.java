@@ -45,6 +45,20 @@ public class TestConnessione {
             String argomento = "matematica";
             tirocinio.inseriscitirocinio(argomento ,"INTERNO" , null , null, "kekko");
             System.out.println("Tirocinio di " + argomento + " inserito correttamente");
+
+            ArrayList<Integer> idTirocini = new ArrayList<>();
+            ArrayList<String> argomenti = new ArrayList<>();
+            ArrayList<String> tipi = new ArrayList<>();
+            ArrayList<String> nomiReferenti = new ArrayList<>();
+            ArrayList<String> emailReferenti = new ArrayList<>();
+            ArrayList<String> loginDocenti = new ArrayList<>();
+
+            tirocinio.getTirocinioDisponibili(
+                    idTirocini, argomenti, tipi,
+                    nomiReferenti, emailReferenti, loginDocenti);
+
+            System.out.println(idTirocini);
+            System.out.println(argomenti);
         } catch (Exception e) {
             e.printStackTrace();
         }
