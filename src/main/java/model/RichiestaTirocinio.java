@@ -46,7 +46,7 @@ public class RichiestaTirocinio {
     public Docente getDocenterelatore() {
         return tirocinio.getDocente();
     }
-    public void getDataRichiesta(){
+    public LocalDateTime getDataRichiesta(){
         return this.dataRichiesta ;
     }
 }

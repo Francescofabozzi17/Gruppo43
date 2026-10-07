@@ -38,12 +38,12 @@ import java.util.ArrayList;
             try (PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet risultato = statement.executeQuery() ) {
                 while(risultato.next()){
-                    idTirocini.add(risultato.getInt("id_Tirocini"));
-                    argomenti.add(risultato.getString("argomenti"));
-                    tipiTirocinio.add(risultato.getString("tipiTirocinio"));
-                    referentiAziendaliNomi.add(risultato.getString("referentiAziendaliNomi"));
-                    referentiAziendaliEmail.add(risultato.getString("referentiAziendaliEmail"));
-                    loginDocenti.add(risultato.getString("loginDocenti"));
+                    idTirocini.add(risultato.getInt("id_Tirocinio"));
+                    argomenti.add(risultato.getString("argomento"));
+                    tipiTirocinio.add(risultato.getString("tipoTirocinio"));
+                    referentiAziendaliNomi.add(risultato.getString("referenteAziendaliNomi"));
+                    referentiAziendaliEmail.add(risultato.getString("referenteAziendaliEmail"));
+                    loginDocenti.add(risultato.getString("loginDocente"));
                 }
             }
     }
@@ -59,18 +59,18 @@ import java.util.ArrayList;
 
             try (ResultSet risultato = statement.executeQuery()){
                  while (risultato.next()){
-                     idTirocini.add(risultato.getInt("id_Tirocini"));
-                     argomenti.add(risultato.getString("argomenti"));
-                     tipiTirocinio.add(risultato.getString("tipiTirocinio"));
-                     referentiAziendaliNomi.add(risultato.getString("referentiAziendaliNomi"));
-                     referentiAziendaliEmail.add(risultato.getString("referentiAziendaliEmail"));
+                     idTirocini.add(risultato.getInt("id_Tirocinio"));
+                     argomenti.add(risultato.getString("argomento"));
+                     tipiTirocinio.add(risultato.getString("tipoTirocinio"));
+                     referentiAziendaliNomi.add(risultato.getString("referenteAziendaliNomi"));
+                     referentiAziendaliEmail.add(risultato.getString("referenteAziendaliEmail"));
                  }
                }
             }
         }
 
         @Override
-        public void getTirociniInCorsoPerDocente(String loginDocente, ArrayList<Integer> idTirocini, ArrayList<String> argomenti, ArrayList<String> loginStudenti, ArrayList<String> nomiStudenti, ArrayList<String> cognomiStudenti) throws Exception {
+        public void getTirociniInCorsoPes65 asw3rDocente(String loginDocente, ArrayList<Integer> idTirocini, ArrayList<String> argomenti, ArrayList<String> loginStudenti, ArrayList<String> nomiStudenti, ArrayList<String> cognomiStudenti) throws Exception {
             throw new UnsupportedOperationException(
                     "Metodo getTirociniInCorsoPerDocente da completare");
         }

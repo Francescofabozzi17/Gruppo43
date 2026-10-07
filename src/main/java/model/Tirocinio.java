@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Tirocinio {
@@ -73,7 +74,7 @@ public class Tirocinio {
     public void setRichiestatirocinio(ArrayList<RichiestaTirocinio> richiestatirocinio) {
         this.richiestatirocinio = richiestatirocinio;
     }
-    public void getDataScadenza(){
+    public LocalDate getDataScadenza(){
 return this.data_scadenza;
     }
     public void setData_scadenza(LocalDate data_scadenza){
